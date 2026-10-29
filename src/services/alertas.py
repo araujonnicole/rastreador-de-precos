@@ -1,3 +1,4 @@
+from src.config import QUEDA_MINIMA_PERCENTUAL
 from src.notifiers.base import Notifier
 from src.services.tracker import ResultadoVerificacao
 
@@ -13,8 +14,19 @@ def montar_mensagem(resultado: ResultadoVerificacao) -> str:
     )
 
 
-def notificar_queda(resultado: ResultadoVerificacao, notifier: Notifier) -> bool:
-    if not resultado.caiu:
+def notificar_queda(
+    resultado: ResultadoVerificacao,
+    notifiers: list[Notifier],
+    queda_minima: float = QUEDA_MINIMA_PERCENTUAL,
+) -> bool:
+    if not resultado.caiu or resultado.queda_percentual < queda_minima:
         return False
-    notifier.enviar(montar_mensagem(resultado))
+
+    mensagem = montar_mensagem(resultado)
+    for notifier in notifiers:
+        try:
+            notifier.enviar(mensagem)
+        except Exception as erro:
+            # Só o tipo do erro: a mensagem completa pode conter o token na URL.
+            print(f"Falha em {type(notifier).__name__}: {type(erro).__name__}")
     return True
