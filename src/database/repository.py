@@ -83,3 +83,22 @@ def listar_historico(url: str) -> list[sqlite3.Row]:
         return cursor.fetchall()
     finally:
         conexao.close()
+
+def buscar_ultimo_preco(url: str) -> float | None:
+    conexao = conectar()
+    try:
+        cursor = conexao.execute(
+            """
+            SELECT h.preco
+            FROM historico_precos h
+            JOIN produtos p ON p.id = h.produto_id
+            WHERE p.url = ?
+            ORDER BY h.id DESC
+            LIMIT 1
+            """,
+            (url,),
+        )
+        linha = cursor.fetchone()
+        return linha["preco"] if linha else None
+    finally:
+        conexao.close()
