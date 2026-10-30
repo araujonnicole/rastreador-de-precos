@@ -9,10 +9,11 @@ logger = logging.getLogger(__name__)
 
 def montar_mensagem(resultado: ResultadoVerificacao) -> str:
     produto = resultado.produto
+    moeda = produto.moeda
     return (
         "📉 Queda de preço!\n\n"
         f"{produto.nome}\n"
-        f"De £{resultado.preco_anterior:.2f} para £{produto.preco:.2f} "
+        f"De {moeda} {resultado.preco_anterior:.2f} para {moeda} {produto.preco:.2f} "
         f"(-{resultado.queda_percentual:.1f}%)\n\n"
         f"{produto.url}"
     )
@@ -31,6 +32,7 @@ def notificar_queda(
         try:
             notifier.enviar(mensagem)
         except Exception as erro:
+            # Só o tipo do erro: a mensagem completa pode conter o token na URL.
             logger.error(
                 "Falha em %s: %s", type(notifier).__name__, type(erro).__name__
             )

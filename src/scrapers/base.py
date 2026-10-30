@@ -7,6 +7,7 @@ class Produto:
     nome: str
     preco: float
     url: str
+    moeda: str = "£"
 
 
 class BaseScraper(ABC):
