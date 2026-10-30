@@ -1,6 +1,10 @@
+import logging
+
 from src.config import QUEDA_MINIMA_PERCENTUAL
 from src.notifiers.base import Notifier
 from src.services.tracker import ResultadoVerificacao
+
+logger = logging.getLogger(__name__)
 
 
 def montar_mensagem(resultado: ResultadoVerificacao) -> str:
@@ -27,6 +31,7 @@ def notificar_queda(
         try:
             notifier.enviar(mensagem)
         except Exception as erro:
-            # Só o tipo do erro: a mensagem completa pode conter o token na URL.
-            print(f"Falha em {type(notifier).__name__}: {type(erro).__name__}")
+            logger.error(
+                "Falha em %s: %s", type(notifier).__name__, type(erro).__name__
+            )
     return True
