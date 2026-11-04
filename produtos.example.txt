@@ -1,0 +1,4 @@
+# Um produto por linha: link da página do produto, sem o "?" e o que vem depois
+# Sites suportados: books.toscrape.com e kabum.com.br
+https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
+# https://www.kabum.com.br/produto/NUMERO/nome-do-produto

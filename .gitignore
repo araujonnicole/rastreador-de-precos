@@ -5,3 +5,4 @@ __pycache__/
 logs/
 diagnostico2.py
 .pytest_cache/
+produtos.txt
