@@ -3,3 +3,5 @@ __pycache__/
 .env
 *.db
 logs/
+diagnostico2.py
+simular_queda.py

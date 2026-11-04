@@ -2,10 +2,12 @@ from urllib.parse import urlparse
 
 from src.scrapers.base import BaseScraper
 from src.scrapers.books_toscrape import BooksToScrapeScraper
+from src.scrapers.kabum import KabumScraper
 
 # Cada site conhecido aponta para o scraper que sabe lê-lo.
 SCRAPERS = {
     "books.toscrape.com": BooksToScrapeScraper,
+    "kabum.com.br": KabumScraper,
 }
 
 

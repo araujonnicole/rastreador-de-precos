@@ -1,2 +1,5 @@
 # Um produto por linha
 https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
+
+# SSD Kingston A400, 480GB, 2.5", SATA III, Leitura: 500 MB/s, Gravação: 450 MB/s, Preto - SA400S37/480G
+https://www.kabum.com.br/produto/85198/ssd-kingston-a400-480gb-sata-iii-2-5-leitura-500mb-s-gravacao-450mb-s-preto-sa400s37-480g
