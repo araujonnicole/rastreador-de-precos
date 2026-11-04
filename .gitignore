@@ -4,4 +4,4 @@ __pycache__/
 *.db
 logs/
 diagnostico2.py
-simular_queda.py
+.pytest_cache/

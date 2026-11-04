@@ -1,5 +1,17 @@
 # Um produto por linha
 https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
 
-# SSD Kingston A400, 480GB, 2.5", SATA III, Leitura: 500 MB/s, Gravação: 450 MB/s, Preto - SA400S37/480G
+# SSD Kingston 480GB
 https://www.kabum.com.br/produto/85198/ssd-kingston-a400-480gb-sata-iii-2-5-leitura-500mb-s-gravacao-450mb-s-preto-sa400s37-480g
+
+# HD 1TB  Western Digital
+https://www.kabum.com.br/produto/888430/hd-wd-1tb-3-5-sata-3-7200rpm-pull-prateado-wd10eurx
+
+# Water Cooler Raise Mode ARGB
+https://www.kabum.com.br/produto/419100/water-cooler-rise-mode-aura-frost-pro-argb-360mm-amd-intel-branco-rm-wcf-07-argb
+
+# Water Cooler Raise Mode
+https://www.kabum.com.br/produto/727209/water-cooler-gamer-rise-mode-frost-rainbow-360mm-amd-e-intel-branco-rm-wcf-04-rbw
+
+# Fonte de Alimentação MSI
+https://www.kabum.com.br/produto/1048099/fonte-de-alimentacao-msi-mag-a650bnl-white-650w-80-plus-bronze-pfc-ativo-branco

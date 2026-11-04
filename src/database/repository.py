@@ -1,9 +1,10 @@
 import sqlite3
 from datetime import datetime
+from pathlib import Path
 
 from src.scrapers.base import Produto
 
-DB_PATH = "precos.db"
+DB_PATH = Path(__file__).resolve().parents[2] / "precos.db"
 
 
 def conectar() -> sqlite3.Connection:
