@@ -83,7 +83,7 @@ rastreador-de-precos/
 Requer Python 3.10 ou superior.
 
 ```bash
-git clone https://github.com/SEU_USUARIO/rastreador-de-precos.git
+git clone https://github.com/araujonnicole/rastreador-de-precos.git
 cd rastreador-de-precos
 python -m venv venv
 ```
