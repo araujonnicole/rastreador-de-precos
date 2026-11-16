@@ -1,26 +1,15 @@
 import json
 
-import requests
 from bs4 import BeautifulSoup
 
 from src.scrapers.base import BaseScraper, Produto
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-    ),
-    "Accept-Language": "pt-BR,pt;q=0.9",
-}
-
 
 class KabumScraper(BaseScraper):
     def buscar_produto(self, url: str) -> Produto:
-        resposta = requests.get(url, headers=HEADERS, timeout=15)
-        resposta.raise_for_status()
-        resposta.encoding = "utf-8"
+        html = self.baixar_html(url)
 
-        sopa = BeautifulSoup(resposta.text, "html.parser")
+        sopa = BeautifulSoup(html, "html.parser")
         dados = self._ler_next_data(sopa)
         produto = dados["props"]["pageProps"]["product"]
 
