@@ -178,6 +178,25 @@ pytest
 
 Os testes não acessam a internet, nem o banco real, nem enviam mensagens: usam páginas HTML simuladas, notificadores falsos e um banco temporário.
 
+## Plano B com IA (LLM)
+
+Se o scraper de uma loja falha (por exemplo, o site mudou o layout e o seletor
+deixou de funcionar), o rastreador não desiste: ele envia o texto visível da
+página ao Gemini (API gratuita) e pede o nome e o preço do produto em JSON.
+
+Como a resposta de um LLM não é confiável por padrão, ela passa por travas:
+
+- O JSON é validado com Pydantic (o preço precisa ser maior que zero).
+- O preço devolvido precisa aparecer no texto enviado. Se não aparecer, o
+  resultado é descartado e nada é salvo no banco.
+- Em erros temporários do Google (429, 500, 503), o extrator tenta de novo
+  até 3 vezes, esperando 4s e depois 8s.
+- Só erros de leitura da página acionam o plano B. Erros de rede continuam
+  sendo tratados como antes.
+
+Configuração: defina `GEMINI_API_KEY` no arquivo `.env` (veja o `.env.example`).
+O modelo pode ser trocado com a variável opcional `GEMINI_MODEL`.
+
 ## Decisões de projeto
 
 - **Modelos (`BaseScraper` e `Notifier`):** um site ou canal novo é uma classe nova, sem alterar o restante do sistema.
