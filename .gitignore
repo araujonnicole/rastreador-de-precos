@@ -6,3 +6,4 @@ logs/
 diagnostico2.py
 .pytest_cache/
 produtos.txt
+.vscode/
